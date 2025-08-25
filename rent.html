@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Car</title>
+    <link rel="stylesheet" href="rent.css">
+</head>
+<body>
+  <div class="head">
+    <section class="header">
+        <h1 id="car-name">Car Name</h1>
+        <div class="details">
+            <p id="car-seats"></p>
+            <p id="car-fuel"></p>
+            <p id="car-price"></p>
+            <p id="car-transmission"></p>
+            <p id="car-mileage"></p>
+            <p id="car-reviews"></p>
+            <p id="car-rating"></p>
+        </div>
+        <div id="tagline-container">
+            <p id="dynamic-tagline"></p>
+        </div>
+    </section>
+    <section class="car-details">
+        <img id="car-image" src="" alt="Car Image" />
+    </section>
+</div>
+
+    <section class="features">
+        <div class="features-header">
+            <h2>Features</h2>
+            <a href="#" id="toggleFeatures">View more ▼</a>
+        </div>
+        <div id="featuresContainer"></div> <!-- Features will be added here -->
+    </section>
+    </section>
+    <section class="booking">
+        <h2>Book Your Ride</h2>
+        <div class="date-now" style="color: #2C5364;">
+          <div class="today-date"></div>
+          <div class="current-time"></div>
+        </div>
+        <br>
+        <form id="booking-form">
+            <div class="booking-container">
+                <div class="input-group">
+                    <label for="pickup-date">Pickup Date:</label>
+                    <input type="datetime-local" id="pickup-date" required>
+                </div>
+                <div class="input-group">
+                    <label for="return-date">Return Date:</label>
+                    <input type="datetime-local" id="return-date" required>
+                </div>
+                <button type="submit" id="confirmBtn">Confirm Booking</button>
+                <button type="button" id="changeBtn" style="display: none;">Change Details</button>
+            </div>
+        </form>
+    </section>
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+          <div class="faq-item">
+            <h3 class="faq-question">What documents are required to rent a car?</h3>
+            <p class="faq-answer">You need a valid driving license, identity proof, and in some cases, a credit/debit card.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is there any mileage limit on rented cars?</h3>
+            <p class="faq-answer">Yes, mileage limits vary by car. Extra charges apply for exceeding the limit.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Can I cancel or reschedule my booking?</h3>
+            <p class="faq-answer">Yes, you can cancel or reschedule up to 24 hours before the booking time.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Are fuel charges included in the rental price?</h3>
+            <p class="faq-answer">No, fuel charges are not included. You need to return the car with the same fuel level.</p>
+          </div>
+        </div>
+      </section>      
+    <section class="policy-agreement">
+        <div class="policy-header">
+            <h3>Policies and Agreement</h3>
+            <a href="policies.html" class="learn-more" target="_blank">Learn More &gt;</a>
+        </div>
+        <div class="policy-content">
+            <label class="checkbox-container">
+                <input type="checkbox" id="agree-checkbox" checked> <!-- Checkbox already checked -->
+                <span class="checkmark"></span>
+                I hereby agree to the terms and conditions of the 
+                <a href="lease.html" class="lease-link" target="_blank"> Lease Agreement </a> with Host
+            </label>
+            <a href="lease.html" class="view-details" target="_blank">VIEW DETAILS</a>
+        </div>
+    </section>
+    <div class="payment-box">
+        <h3>Trip Summary</h3>
+        <div class="summary-line">
+          <span>Base Fare</span>
+          <span id="baseFare">₹-/</span>
+        </div>
+        <div class="summary-line">
+          <span>Taxes & Fees</span>
+          <span id="taxAmt">₹0</span>
+        </div>
+        <div class="summary-line total">
+          <span>Total</span>
+          <span id="totlAmt">₹-/</span>
+        </div>
+        <button id="paymentButton">Proceed to payment</button>
+      </div>     
+    <script src="rent.js"></script>
+</body>
+</html>

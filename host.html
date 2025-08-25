@@ -1,0 +1,105 @@
+<!-- host.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Host Panel</title>
+</head>
+<body>
+
+  // currently not working in this project
+
+
+  <h2>Host Login</h2>
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+  <input type="text" id="username" placeholder="Username">
+  <button onclick="registerHost()">Register</button>
+  <button onclick="loginHost()">Login</button>
+
+  <h2>Manage Your Cars</h2>
+  <input type="text" id="carModel" placeholder="Car Model">
+  <input type="number" id="price" placeholder="Price/Day">
+  <input type="number" id="duration" placeholder="Duration (days)">
+  <button onclick="addCar()">Add Car</button>
+
+  <div id="carList"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_BUCKET",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    async function registerHost() {
+      const email = email.value;
+      const password = password.value;
+      const username = username.value;
+
+      try {
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const res = await fetch('/register', {
+          method: 'POST',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ uid: userCred.user.uid, email, username })
+        });
+        alert("Registered successfully");
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    async function loginHost() {
+      const email = email.value;
+      const password = password.value;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        fetchCars();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    async function addCar() {
+      const carModel = document.getElementById("carModel").value;
+      const price = document.getElementById("price").value;
+      const duration = document.getElementById("duration").value;
+
+      const res = await fetch('/add-car', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ carModel, price, duration })
+      });
+      fetchCars();
+    }
+
+    async function fetchCars() {
+      const res = await fetch('/get-cars');
+      const cars = await res.json();
+      let carListHTML = '';
+      cars.forEach(car => {
+        carListHTML += `<div>
+          <strong>${car.model}</strong> - ₹${car.price}/day for ${car.duration} days
+          <button onclick="deleteCar(${car.id})">Delete</button>
+        </div>`;
+      });
+      document.getElementById('carList').innerHTML = carListHTML;
+    }
+
+    async function deleteCar(id) {
+      await fetch(`/delete-car/${id}`, { method: 'DELETE' });
+      fetchCars();
+    }
+  </script>
+</body>
+</html>

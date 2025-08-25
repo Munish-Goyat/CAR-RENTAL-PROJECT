@@ -1,0 +1,350 @@
+:root {
+    --primary: #2C5364;
+    --secondary: #0F2027;
+    --accent: #00c9a7;
+    --light-bg: #E5ECF4;
+    --white: #ffffff;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--light-bg);
+    color: var(--text-dark);
+  }
+
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+  }
+
+  .header {
+    text-align: left;
+    flex: 1;
+    max-width: 500px;
+  }
+
+  #car-name {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .details p {
+    font-size: 18px;
+    margin: 6px 0;
+  }
+
+  .car-details img {
+    max-width: 600px;
+    width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .booking {
+    padding: 40px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .booking h2 {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+
+  .booking-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .input-group input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 200px;
+  }
+
+  #booking-form button {
+    background: var(--white);
+    color: var(--secondary);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #booking-form button:hover {
+    background: #0F2027;
+    color: var(--white);
+  }
+
+  .features {
+    margin: 40px auto;
+    padding: 20px;
+    width: 85%;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .features-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .features-header a {
+    display: none;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    max-height: 1000px;
+  }
+
+  .features-list li {
+    background: #cce5ea;
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .feature-item.hidden {
+    display: block;
+  }
+
+  .policy-agreement {
+    margin: 40px auto;
+    padding: 20px;
+    width: 85%;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .policy-header h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .checkbox-container input:checked + .checkmark::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: var(--white);
+    background: var(--primary);
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #tagline-container {
+    margin-top: 20px;
+    font-size: 25px;
+    font-style: italic;
+    color: var(--white);
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .faq-section {
+    margin: 50px auto;
+    padding: 30px;
+    width: 85%;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faq-section h2 {
+    font-size: 28px;
+    color: var(--primary);
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--light-bg);
+    padding-bottom: 10px;
+  }
+  
+  .faq-question {
+    font-size: 18px;
+    color: var(--text-dark);
+    cursor: pointer;
+    position: relative;
+    padding-right: 20px;
+  }
+  
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    color: var(--primary);
+    font-size: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .faq-question.active::after {
+    content: '-';
+  }
+  
+  .faq-answer {
+    display: none;
+    margin-top: 10px;
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .payment-box {
+    position: fixed;
+    top: 100px;
+    right: 40px;
+    width: 280px;
+    background: var(--white);
+    border: 1px solid var(--light-bg);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+  }
+  
+  .payment-box h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-size: 20px;
+  }
+  
+  .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--text-dark);
+  }
+  
+  .summary-line.total {
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  .payment-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .payment-box button:hover {
+    background: var(--secondary);
+  }
+  
+  
+  .payment-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 280px;
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .summary-line.total {
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+  

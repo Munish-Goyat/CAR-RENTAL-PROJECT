@@ -1,0 +1,15 @@
+{
+  "name": "car",
+  "version": "1.0.0",
+  "description": "Welcome to our comprehensive tutorial on building a responsive car rental website using HTML, CSS, and JavaScript!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
